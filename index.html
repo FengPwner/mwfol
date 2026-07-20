@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWFoL</title>
+    <meta name="description" content="这里是MWFoL">
+    <link rel="icon" href="https://mwfol.pages.dev/image/MWFoL.png" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+            --text: #1e293b;
+            --text-sub: #64748b;
+            --accent: #3b82f6;
+            --border: #e2e8f0;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #222222;
+                --card-bg: #1e293b;
+                --text: #f1f5f9;
+                --text-sub: #94a3b8;
+                --accent: #60a5fa;
+                --border: #334155;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: background .3s, color .3s;
+        }
+        nav { margin-bottom: 2rem; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+        nav a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transition: background .2s;
+        }
+        nav a:hover { background: #e0e0e0; }
+        .card {
+            max-width: 560px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            animation: fadeUp .6s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 1.75rem; margin-bottom: .5rem; }
+        .subtitle { color: var(--text-sub); margin-bottom: 2rem; font-size: 1.05rem; }
+        .tags { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+        .tag {
+            padding: .3rem .9rem;
+            border-radius: 999px;
+            font-size: .85rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        .tag:hover { color: var(--accent); }
+        footer {
+            margin-top: 2rem;
+            font-size: .8rem;
+            color: var(--text-sub);
+            text-align: center;
+            width: 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        
+        <a href="about/MWFoL.html">关于我们</a>
+        <a href="about/studio.html">名下工作室</a>
+        <a href="donate/donate.html">Donate</a>
+        <a href="application/Android/MWFoL.apk" download="MWFoL.apk">下载APP</a>
+    </nav>
+
+    <main class="card">
+        <div class="avatar">
+            <img src="https://mwfol.pages.dev/image/MWFoL.png" alt="MWFoL">
+        </div>
+        <h1>你好</h1>
+        <p class="subtitle">Version 1.0.1</p>
+        <div class="tags">
+            <a href="introduction/MWFoL.html" target="_blank" class="tag">介绍</a>
+            <a href="project/project.html" class="tag">项目</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 · Powered by MWFoL · All Rights Reserved.</p>
+        <p>声明：所属服务器位于境外，域名于境外机构管理，因此不进行备案（不能备案）</p>
+    </footer>
+</body>
+</html>

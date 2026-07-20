@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWFoL项目</title>
+    <!-- 引入Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        nav { margin-bottom: 2rem; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+        nav a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transition: background .2s;
+        }
+        nav a:hover { background: #e0e0e0; }
+        
+        #md-box {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+        
+        a:link, a:visited {
+         color: inherit;
+        
+            
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://mwfol.pages.dev/index.html">首页</a>
+    </nav>
+    <div id="md-box"></div>
+
+    <script>
+    fetch('https://mwfol-doc.pages.dev/Markdown.md')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('网络响应不正常');
+            }
+            return response.text();
+        })
+        .then(text => {
+            document.getElementById('md-box').innerHTML = marked.parse(text);
+        })
+        .catch(error => {
+            console.error('加载 Markdown 文件时出错:', error);
+            document.getElementById('md-box').innerHTML = '<p>内容加载失败，请刷新或稍后重试</p>';
+        });
+   </script>
+
+</body>
+</html>

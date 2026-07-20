@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于TNET工作室</title>
+    <!-- 引入Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        nav { margin-bottom: 2rem; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+        nav a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transition: background .2s;
+        }
+        nav a:hover { background: #e0e0e0; }
+        
+        #md-box {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://mwfol.pages.dev/index.html">首页</a>
+    </nav>
+    <div id="md-box"></div>
+
+    <script>
+        
+        const mdText = `
+# <p align="center">TNET工作室</p>
+## 业务范围
+- 网站开发
+- 开源项目维护
+- 前端
+
+
+声明：「TNET工作室」（TNET-Studio）全称TCOAHC-NET工作室。原本为TCOAHC(The continuation of advanced human civilization)名下网络工作室，现为MWFoL名下工作室，与香港虚拟主机域名服务商「时代互联（T-NET / tnet.hk）」无任何关联
+
+        `;
+
+        document.getElementById('md-box').innerHTML = marked.parse(mdText);
+    </script>
+</body>
+</html>

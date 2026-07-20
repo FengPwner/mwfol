@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于MWFoL</title>
+    <!-- 引入Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+    
+        nav { margin-bottom: 2rem; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+        nav a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transition: background .2s;
+        }
+        nav a:hover { background: #e0e0e0; }
+        
+        #md-box {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+        
+        a:link, a:visited {
+         color: inherit;
+        
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://mwfol.pages.dev/index.html">首页</a>
+    </nav>
+    <div id="md-box"></div>
+
+    <script>
+        
+        const mdText = `
+# <p align="center">Make the world full of localization(MWFoL)</p>
+## 业务范围
+- 开源项目本地化
+
+其它介绍请看[MWFoL](https://mwfol.pages.dev/introduction/MWFoL.html)
+---
+<p align="center"><a href="https://github.com/MWFoL">MWFoL的GitHub</a></p>
+<p align="center"><a href="https://atomgit.com/MWFoL">MWFoL的Atomgit</a></p>
+
+        `;
+
+        document.getElementById('md-box').innerHTML = marked.parse(mdText);
+    </script>
+</body>
+</html>

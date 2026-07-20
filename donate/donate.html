@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <!-- 引入Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        nav { margin-bottom: 2rem; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+        nav a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transition: background .2s;
+        }
+        nav a:hover { background: #e0e0e0; }
+        
+        #md-box {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+        
+        a:link, a:visited {
+         color: inherit;
+        
+            
+        }
+
+
+
+.copy-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+.copy-btn:hover {
+    background-color: #e0e0e0;
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://mwfol.pages.dev/index.html">Home</a>
+    </nav>
+    <div id="md-box"></div>
+
+    <script>
+        
+        const mdText = `
+# <p align="center">Make the world full of localization(MWFoL)</p>
+---
+
+| Account Type |   Account Address   |  copy  |
+| :-------: | :---------: | :--------: | 
+| BTC | bc1pr2vvdkqv2lsukgye0pt2msdn8zk2k2x72udm4jk4n63ryre4jmuqyrcjwj | <button class="copy-btn" onclick="copyToClipboard('bc1pr2vvdkqv2lsukgye0pt2msdn8zk2k2x72udm4jk4n63ryre4jmuqyrcjwj')">copy</button>  | 
+| ETH | 0xc77460D6C209163A11E2D814f029Bf44E6D57576 | <button class="copy-btn" onclick="copyToClipboard('0xc77460D6C209163A11E2D814f029Bf44E6D57576')">copy</button> |
+
+
+---
+# 关于捐赠的重要说明
+
+感谢您对MWFoL的关注与支持。为了让您充分了解捐赠资金的使用方式，请您在捐赠前仔细阅读以下说明：
+
+1. MWFoL不具备法人资格，亦未在任何国家或地区注册为基金会或非营利组织。
+
+2. **本项目的捐赠通道仅面向中国大陆地区以外的用户开放。中国大陆地区居民及法人实体请勿进行任何形式的捐赠。**
+
+3. 所有捐赠资金（USDC，ERC-20）将专项用于项目服务器及基础设施的运营开支（目前主要为Cloudflare服务费用），不作他用。
+
+4. 捐赠行为被视为您对上述用途的自愿赠与。捐赠者不因捐赠行为而获得本项目的任何所有权、股权或收益权。
+
+5. 由于区块链网络运行需要，极小部分捐赠资金（不超过捐赠总额的5%）可能被兑换为ETH，用于支付转账过程中的网络手续费（Gas费）。所有支出均以维护项目正常运行为唯一目的。
+
+6. 本项目不向捐赠者索取任何个人信息（包括但不限于姓名、身份证号、银行账户等）。您的匿名性将得到充分尊重。
+
+再次感谢您的支持与信任。
+
+# Important Notice on Donations
+
+Thank you for your interest in and support of MWFoL.To ensure full transparency regarding the use of donated funds, please read the following carefully before making a donation:
+
+1. MWFoL does not possess legal entity status and is not registered as a foundation or non-profit organization in any country or jurisdiction.
+
+2. **This donation channel is open exclusively to users outside mainland China. Residents and legal entities of mainland China are kindly requested not to make any donations.**
+
+3. All donated funds (USDC, ERC-20) will be exclusively used for project server and infrastructure operational expenses (currently primarily Cloudflare services) and will not be used for any other purposes.
+
+4. Donations are considered voluntary grants for the purposes stated above. Donors do not acquire any ownership, equity, or profit-sharing rights in this project as a result of their donation.
+
+5. Due to blockchain network operational requirements, a minimal portion of the donated funds (not exceeding 5% of the total donation) may be converted to ETH to cover network transaction fees (Gas fees). All expenditures are strictly for the purpose of maintaining project operations.
+
+6. This project does not collect any personal information from donors (including but not limited to names, ID numbers, bank account details, etc.). Your anonymity will be fully respected.
+
+Thank you again for your support and trust.
+
+
+
+        `;
+
+        document.getElementById('md-box').innerHTML = marked.parse(mdText);
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('OK');
+    }, (err) => {
+        console.error('No: ', err);
+        alert('Copy bad.Copy by yourself');
+    });
+}
+
+    </script>
+</body>
+</html>

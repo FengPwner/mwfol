@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWFoL项目</title>
+    <!-- 引入Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
+    <style>
+        nav { margin-bottom: 2rem; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+        nav a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transition: background .2s;
+        }
+        nav a:hover { background: #e0e0e0; }
+        
+        #md-box {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+        
+        a:link, a:visited {
+         color: inherit;
+        
+            
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://mwfol.pages.dev/index.html">首页</a>
+    </nav>
+    <div id="md-box"></div>
+
+    <script>
+  
+  window.onload = function() {
+    console.log("页面及所有资源已加载完毕，开始执行...");
+
+    const box = document.getElementById('md-box');
+    const targetUrl = 'https://raw.atomgit.com/MWFoL/MWFoL/raw/main/README.md';
+    const proxyUrl = '/proxy?url=' + encodeURIComponent(targetUrl);
+
+    console.log("准备请求:", proxyUrl);
+    box.innerHTML = '<p>正在加载内容...</p>';
+
+    fetch(proxyUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('网络响应不正常，状态码: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(text => {
+        console.log("内容获取成功，长度:", text.length);
+        
+        box.innerHTML = marked.parse(text);
+      })
+      .catch(error => {
+        console.error('加载失败:', error);
+        box.innerHTML = '<p style="color:red;">内容加载失败</p><p>错误详情: ' + error.message + '</p>';
+      });
+  };
+</script>
+
+
+</body>
+</html>
